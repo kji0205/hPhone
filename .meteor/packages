@@ -22,3 +22,4 @@ autopublish             # Publish all data to the clients (for prototyping)
 insecure                # Allow all DB writes from clients (for prototyping)
 mizzao:bootstrap-3
 underscore
+iron:router
