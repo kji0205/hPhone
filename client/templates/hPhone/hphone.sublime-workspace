@@ -1,0 +1,1207 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"off",
+				"offsetX"
+			],
+			[
+				"scroll",
+				"scrollTop"
+			],
+			[
+				"scr",
+				"scrollLeft"
+			],
+			[
+				"do",
+				"document"
+			],
+			[
+				"offset",
+				"offsetY"
+			],
+			[
+				"sc",
+				"scrollLeft"
+			],
+			[
+				"sock",
+				"sockets"
+			],
+			[
+				"Create",
+				"CreateCastlePresenter"
+			],
+			[
+				"vali",
+				"validationResult"
+			],
+			[
+				"save",
+				"saveCastleSuccess"
+			],
+			[
+				"proto",
+				"prototype"
+			],
+			[
+				"val",
+				"validationResult"
+			],
+			[
+				"CreateCa",
+				"CreateCastlePresenter"
+			],
+			[
+				"user",
+				"user_id"
+			],
+			[
+				"ins",
+				"institute_id"
+			],
+			[
+				"instu",
+				"institute_id"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "hphoneList.html",
+			"settings":
+			{
+				"buffer_size": 305,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "hphonelist.js",
+			"settings":
+			{
+				"buffer_size": 86,
+				"encoding": "UTF-8",
+				"line_ending": "Unix",
+				"name": "Template.postsList.helpers({"
+			}
+		},
+		{
+			"file": "request.html",
+			"settings":
+			{
+				"buffer_size": 2620,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "request.js",
+			"settings":
+			{
+				"buffer_size": 477,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 287.0,
+		"last_filter": "inst",
+		"selected_items":
+		[
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": true,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/jimmy/repo/hPhone",
+		"/Users/jimmy/repo/hPhone/client",
+		"/Users/jimmy/repo/hPhone/client/templates",
+		"/Users/jimmy/repo/hPhone/client/templates/hPhone",
+		"/Users/jimmy/repo/hPhone/client/templates/posts",
+		"/Users/jimmy/repo/hPhone/lib",
+		"/Users/jimmy/repo/hPhone/lib/collections",
+		"/Users/jimmy/repo/hPhone/server"
+	],
+	"file_history":
+	[
+		"/Users/jimmy/Library/Application Support/Sublime Text 3/Packages/User/sftp_servers/sftp-config.json",
+		"/Users/jimmy/repo/hPhone/sftp-config.json",
+		"/Users/jimmy/repo/hPhone/client/templates/hPhone/hphoneList.html",
+		"/var/folders/_r/8k7x1jsd45l4qz5rp0_hnbrw0000gn/T/sublime-sftp-browse-1489184337/sftp-config.json/home/ec2-user/hPhone/client/templates/hPhone/request.html",
+		"/var/folders/_r/8k7x1jsd45l4qz5rp0_hnbrw0000gn/T/sublime-sftp-browse-1489159119/sftp-config.json/home/ec2-user/hPhone/server/main.js",
+		"/var/folders/_r/8k7x1jsd45l4qz5rp0_hnbrw0000gn/T/sublime-sftp-browse-1489152311/sftp-config.json/home/ec2-user/hPhone/client/stylesheet/style.css",
+		"/var/folders/_r/8k7x1jsd45l4qz5rp0_hnbrw0000gn/T/sublime-sftp-browse-1489147421/sftp-config.json/home/ec2-user/hPhone/client/request.html",
+		"/Users/jimmy/Library/Caches/com.binarynights.ForkLift2/#3/layout.html",
+		"/Users/jimmy/Library/Caches/com.binarynights.ForkLift2/#0/main.js",
+		"/Users/jimmy/tmp/ab.js",
+		"/Users/jimmy/tmp/p63.js",
+		"/Users/jimmy/tmp/server.js",
+		"/Users/jimmy/tmp/httpServer.js",
+		"/Users/jimmy/tmp/httpServerFile.js",
+		"/Users/jimmy/tmp/abc.js",
+		"/Users/jimmy/tmp/abc.html",
+		"/Users/jimmy/tmp/b.js",
+		"/Users/jimmy/tmp/a.html",
+		"/Users/jimmy/tmp/c.js",
+		"/20170128.js",
+		"/Users/jimmy/tmp/mvp.js",
+		"/Users/jimmy/tmp/test.js",
+		"/Users/jimmy/Desktop/first_12.29/src/main/webapp/index.jsp",
+		"/Users/jimmy/Projects/edwy/resources/lang/en/admin-quote.php",
+		"/Users/jimmy/Projects/edwy/.env",
+		"/Users/jimmy/Projects/edwy/app/Models/QuoteDetail.php",
+		"/Users/jimmy/Projects/edwy/app/Models/Quote.php",
+		"/Users/jimmy/Projects/edwy/database/migrations/2016_11_22_151547_add_postcode_field_into_quotes_table.php",
+		"/Users/jimmy/Projects/edwy/resources/lang/en/admin-accommodation.php",
+		"/Users/jimmy/Projects/edwy/app/Http/routes.php",
+		"/Users/jimmy/Projects/edwy/app/Http/Controllers/Admin/QuoteController.php",
+		"/Users/jimmy/Projects/edwy/bootstrap/cache/config.php",
+		"/Users/jimmy/Projects/edwy/app/Http/Controllers/Admin/AdminBaseController.php",
+		"/Users/jimmy/Projects/edwy/resources/lang/en/admin-main.php",
+		"/Users/jimmy/Projects/edwy/app/Http/Controllers/Front/MyQuoteListingController.php",
+		"/Users/jimmy/Projects/edwy/resources/views/admin/campuses/include/overview.blade.php",
+		"/Users/jimmy/Projects/edwy/resources/views/layouts/admin/include/head.blade.php",
+		"/Users/jimmy/Projects/edwy/resources/views/admin/quotes/include/view_basic.blade.php",
+		"/Users/jimmy/Projects/edwy/resources/views/front/mylisting/quote/form.blade.php",
+		"/Users/jimmy/Projects/edwy/app/Http/Controllers/Front/MyListingController.php",
+		"/Users/jimmy/Projects/edwy/resources/views/front/mylisting/quote/detail.blade.php",
+		"/Users/jimmy/Projects/edwy/database/migrations/2016_11_20_221035_add_campus_field_into_quote_details_table.php",
+		"/Users/jimmy/Projects/edwy/database/migrations/2016_11_19_154302_modify_quote_student_id.php",
+		"/Users/jimmy/Projects/edwy/resources/views/layouts/admin/include/leftmenu.blade.php",
+		"/Users/jimmy/Projects/edwy/resources/lang/en/admin-menu.php",
+		"/Users/jimmy/Projects/edwy/app/Repositories/Eloquent/BaseLangRepository.php",
+		"/Users/jimmy/Projects/edwy/app/Repositories/Eloquent/BaseRepository.php",
+		"/Users/jimmy/Projects/edwy/app/Repositories/Eloquent/LangRepository.php",
+		"/Users/jimmy/Projects/edwy/database/migrations/2016_11_07_000153_add_quote_permissions.php",
+		"/Users/jimmy/Projects/edwy/app/Http/Controllers/Admin/CampusController.php",
+		"/Users/jimmy/Projects/edwy/app/Repositories/Eloquent/AddressRepository.php",
+		"/Users/jimmy/Projects/edwy/resources/views/front/mylisting/quote/index.blade.php",
+		"/Users/jimmy/Projects/edwy/resources/views/admin/campuses/form.blade.php",
+		"/Users/jimmy/Projects/edwy/database/migrations/2016_11_18_223712_modify_some_field_and_some_table.php",
+		"/Users/jimmy/Projects/edwy/app/Helpers/Localize.php",
+		"/Users/jimmy/Projects/edwy/app/Models/Campus.php",
+		"/Users/jimmy/Projects/edwy/app/Http/Controllers/Front/MyAccommodationListingController.php",
+		"/Users/jimmy/Projects/edwy/app/Repositories/Eloquent/CampusRepository.php",
+		"/Users/jimmy/Projects/edwy/app/Models/User.php",
+		"/Users/jimmy/Projects/edwy/app/Events/AccommodationDataModified.php",
+		"/Users/jimmy/Projects/edwy/app/Models/Event.php",
+		"/Users/jimmy/Projects/edwy/app/Models/Address.php",
+		"/Users/jimmy/Projects/edwy/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Relations/BelongsTo.php",
+		"/Users/jimmy/Projects/edwy/app/User.php",
+		"/Users/jimmy/Projects/edwy/app/Models/Accommodation.php",
+		"/Users/jimmy/Projects/edwy/app/Repositories/Eloquent/CourseRepository.php",
+		"/Users/jimmy/Projects/edwy/app/Http/Controllers/Front/FrontBaseController.php",
+		"/Users/jimmy/Projects/edwy/resources/views/admin/quotes/include/basic.blade.php",
+		"/Users/jimmy/Projects/edwy/app/Repositories/Eloquent/QuoteRepository.php",
+		"/Users/jimmy/Projects/edwy/resources/views/admin/quotes/index.blade.php",
+		"/Users/jimmy/Projects/edwy/app/Repositories/Eloquent/AccommodationRepository.php",
+		"/Users/jimmy/Projects/edwy/resources/views/admin/quote/include/basic.blade.php",
+		"/Users/jimmy/Projects/edwy/app/Http/Controllers/Front/AccommodationController.php",
+		"/Users/jimmy/Projects/edwy/resources/views/admin/quote/index.blade.php",
+		"/Users/jimmy/Projects/edwy/resources/views/front/event/index.blade.php",
+		"/Users/jimmy/Projects/edwy/app/Http/Controllers/Admin/EventController.php",
+		"/Users/jimmy/Projects/edwy/resources/views/admin/dashboard/include/event.blade.php",
+		"/Users/jimmy/Projects/edwy/app/Repositories/Eloquent/EventRepository.php",
+		"/Users/jimmy/Projects/edwy/resources/views/admin/quotes/form.blade.php",
+		"/Users/jimmy/Projects/edwy/app/Repositories/Eloquent/TutorRepository.php",
+		"/Users/jimmy/Projects/edwy/resources/views/front/includes/quotes.blade.php",
+		"/Users/jimmy/Projects/edwy/database/migrations/2016_11_17_155232_add_preferred_title_field_into_user.php",
+		"/Users/jimmy/Projects/edwy/database/migrations/2016_11_17_152522_add_address_field_into_user.php",
+		"/Users/jimmy/Projects/edwy/database/migrations/2016_11_17_152105_add_some_field_into_code.php",
+		"/Users/jimmy/Projects/edwy/database/migrations/2016_11_16_210757_add_citizen_option_into_codes.php",
+		"/Users/jimmy/Projects/edwy/app/Models/AgencyAddress.php",
+		"/Users/jimmy/Projects/edwy/app/Repositories/Eloquent/AgencyRepository.php",
+		"/Users/jimmy/Projects/edwy/app/Repositories/Eloquent/JobRepository.php",
+		"/Users/jimmy/Projects/edwy/database/migrations/2016_11_17_122105_add_quote_status_into_codes.php",
+		"/Users/jimmy/Projects/edwy/database/migrations/2016_11_17_151759_add_address_field_into_user.php",
+		"/Users/jimmy/Projects/edwy/database/migrations/2016_11_17_142606_create_user_address_langs_table.php",
+		"/Users/jimmy/Projects/edwy/database/migrations/2016_11_17_142557_create_user_addresses_table.php",
+		"/Users/jimmy/Projects/edwy/app/Models/UserAddressLang.php",
+		"/Users/jimmy/Projects/edwy/app/Models/UserAddress.php",
+		"/Users/jimmy/Projects/edwy/app/Http/Controllers/Admin/AgencyController.php",
+		"/Users/jimmy/Projects/edwy/app/Http/Middleware/Authenticate.php",
+		"/Users/jimmy/Projects/edwy/app/Http/Controllers/Auth/AuthController.php",
+		"/Users/jimmy/Projects/edwy/database/migrations/2016_11_05_000826_create_quotes_table.php",
+		"/Users/jimmy/Projects/edwy/app/Providers/StorageServiceProvider.php",
+		"/Users/jimmy/Projects/edwy/database/migrations/2016_11_16_003335_modify_quotes_table.php",
+		"/Users/jimmy/Projects/edwy/database/migrations/2016_11_16_205337_modify_quotes_table2.php",
+		"/Users/jimmy/Projects/edwy/config/session.php",
+		"/Users/jimmy/Projects/edwy/app/Http/Kernel.php",
+		"/Users/jimmy/Projects/edwy/app/Http/Controllers/Admin/DashboardController.php",
+		"/Users/jimmy/Projects/edwy/database/migrations/2016_11_07_112711_create_invoices_table.php",
+		"/Users/jimmy/Projects/edwy/database/migrations/2016_11_16_171024_add_quote_status_v2.php",
+		"/Users/jimmy/Projects/edwy/resources/lang/en/front-mylisting.php",
+		"/Users/jimmy/Projects/edwy/bin/php-parse",
+		"/Users/jimmy/Projects/edwy/database/migrations/2016_11_16_210419_add_some_fields_into_quotes.php",
+		"/Users/jimmy/Projects/edwy/database/migrations/2016_11_16_003727_create_quote_details_table.php",
+		"/Users/jimmy/Projects/edwy/app/Repositories/QuoteRepositoryInterface.php",
+		"/Users/jimmy/Projects/edwy/app/Http/Controllers/Front/LoginController.php",
+		"/Users/jimmy/Projects/edwy/server.php",
+		"/Users/jimmy/Projects/edwy/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php",
+		"/Users/jimmy/Projects/edwy/composer.json",
+		"/Users/jimmy/Projects/edwy/config/app.php",
+		"/Users/jimmy/Projects/edwy/vendor/stevebauman/authorization/src/AuthorizationServiceProvider.php",
+		"/Users/jimmy/Projects/edwy/config/authorization.php",
+		"/Users/jimmy/Projects/edwy/vendor/stevebauman/authorization/src/Config/config.php",
+		"/Users/jimmy/Projects/edwy/vendor/devfactory/minify/src/config/config.php",
+		"/Users/jimmy/Projects/edwy/app/Http/Middleware/VerifyCsrfToken.php",
+		"/Users/jimmy/Projects/edwy/artisan",
+		"/Users/jimmy/Projects/edwy/.env.testing",
+		"/Users/jimmy/Projects/edwy/vendor/laravel/framework/src/Illuminate/Session/SessionServiceProvider.php",
+		"/Users/jimmy/Projects/edwy/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php",
+		"/Users/jimmy/Projects/edwy/vendor/laravel/framework/src/Illuminate/Container/Container.php",
+		"/Users/jimmy/Projects/edwy/vendor/laravel/framework/src/Illuminate/Foundation/Auth/ThrottlesLogins.php",
+		"/Users/jimmy/Projects/edwy/vendor/laravel/framework/src/Illuminate/Cache/RateLimiter.php"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"/Users/jimmy/Projects/edwy",
+			"<current file>",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"mp4",
+			");",
+			"campus_info",
+			"campus info",
+			"campus_code_title",
+			"campus code",
+			"172.30.1.10",
+			"Mail::",
+			"Mail",
+			"mail",
+			"ㅡ먀",
+			"ㅡ먀ㅣ",
+			"Mail::send",
+			"guzzlehttp",
+			"mail",
+			"citizen",
+			"are you",
+			"expiry_date",
+			"expiry",
+			"$origin['quote']",
+			"address",
+			"postcode",
+			"var_dump",
+			"\"> ",
+			"appro",
+			"app",
+			"approval",
+			"Request",
+			"number_format",
+			"tuition",
+			"number_format",
+			"tip",
+			"only if di",
+			"only if",
+			"panel-headi",
+			";'",
+			"hide",
+			"172.30.1.60",
+			"pay info",
+			"address",
+			"forward",
+			"function http://13.54.1.3 <http://13.54.1.3/>\n\n대학관리자 \nmailto:luis.youn@thecreativeshop.com.au / NewPassword1 \n\nadmin \nfunction forward",
+			"forward",
+			"a",
+			"status",
+			"quotesave",
+			"paid",
+			"admission",
+			"pay",
+			"paid",
+			"var_dump",
+			"pay",
+			"#quote",
+			"mylisting",
+			"bootbox",
+			"bootbox\nbootbox",
+			"bootbox",
+			"front_payed",
+			"addmissionUpdate",
+			"deleteData",
+			"payedUpdate",
+			"forward",
+			".forward",
+			"forward",
+			"mylisting",
+			"',\n",
+			"60",
+			"192.168.25.8",
+			".admission",
+			"admission",
+			"dropColumn",
+			"172.30.45.65",
+			"student",
+			"quote",
+			";\n",
+			"chgStatus",
+			"->update",
+			"quote",
+			"quotes",
+			"declined",
+			"quo",
+			"(1)",
+			"quote.create",
+			"require",
+			"\"name\"=>\"address\",",
+			"address",
+			"H::address(",
+			"address",
+			"presave",
+			"flash",
+			"function address_lat_lng",
+			"exit;",
+			"address",
+			"test",
+			"\"test\"",
+			"'test'",
+			"echo \"test\"",
+			"campus/create",
+			"/institute/campus/create",
+			"172.30.1.30",
+			"function associate",
+			"function save",
+			"accommodation",
+			"agency_id",
+			"agency",
+			"var_dump",
+			"course",
+			"        \n",
+			"save",
+			"save(",
+			"function save",
+			"save",
+			"function save",
+			"save",
+			"postsave",
+			"agency",
+			"insert into quotes",
+			"insert into `quotes`",
+			"beforeStore",
+			"disabled",
+			"\n        ",
+			"quote",
+			"edit",
+			"admin-main",
+			"192.168.25.56",
+			"lang_id",
+			"function associate",
+			"function addr_value"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"course_info",
+			"course_code_title",
+			"admin-quote",
+			"S",
+			"STUDENTSTAGE",
+			"VALUES",
+			"front-templet",
+			"templet",
+			"front-templet",
+			"front-accommodation",
+			"origin_type = 'Z'",
+			"templet",
+			"Templet",
+			"templet",
+			"$templet",
+			" $templet",
+			"MyTempletListingController",
+			"Templet"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "hphoneList.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 305,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								35,
+								35
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"origin_encoding": "ASCII",
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "hphonelist.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 86,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								70,
+								70
+							]
+						],
+						"settings":
+						{
+							"auto_name": "Template.postsList.helpers({",
+							"incomplete_sync": null,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "request.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2620,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1943,
+								1943
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 912.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "request.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 477,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								358,
+								358
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"origin_encoding": "ASCII",
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.sftp":
+	{
+		"height": 118.0
+	},
+	"pinned_build_system": "",
+	"project": "hphone.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				".env",
+				".env"
+			],
+			[
+				"eventserviceprovider",
+				"app/Providers/EventServiceProvider.php"
+			],
+			[
+				"myquote",
+				"app/Http/Controllers/Front/MyQuoteListingController.php"
+			],
+			[
+				"quote",
+				"app/Models/QuoteDetail.php"
+			],
+			[
+				"admin-quote",
+				"resources/lang/en/admin-quote.php"
+			],
+			[
+				"postcode",
+				"database/migrations/2016_11_22_151547_add_postcode_field_into_quotes_table.php"
+			],
+			[
+				"quotecontro",
+				"app/Http/Controllers/Admin/QuoteController.php"
+			],
+			[
+				"admin-accommodation",
+				"resources/lang/en/admin-accommodation.php"
+			],
+			[
+				"quotecontr",
+				"app/Http/Controllers/Admin/QuoteController.php"
+			],
+			[
+				"route",
+				"app/Http/routes.php"
+			],
+			[
+				"quoteindex",
+				"resources/views/admin/quotes/index.blade.php"
+			],
+			[
+				"quotecontroll",
+				"app/Http/Controllers/Admin/QuoteController.php"
+			],
+			[
+				"quotere",
+				"app/Repositories/Eloquent/QuoteRepository.php"
+			],
+			[
+				"routes",
+				"app/Http/routes.php"
+			],
+			[
+				"admin-quot",
+				"resources/lang/en/admin-quote.php"
+			],
+			[
+				"admin-main",
+				"resources/lang/en/admin-main.php"
+			],
+			[
+				"myquotelistingcontroller",
+				"app/Http/Controllers/Front/MyQuoteListingController.php"
+			],
+			[
+				"mylistingquote",
+				"resources/views/front/mylisting/quote/index.blade.php"
+			],
+			[
+				"quotecon",
+				"app/Http/Controllers/Admin/QuoteController.php"
+			],
+			[
+				"mylistingcontro",
+				"app/Http/Controllers/Front/MyListingController.php"
+			],
+			[
+				"mylistingqu",
+				"resources/views/front/mylisting/quote/detail.blade.php"
+			],
+			[
+				"2016_11_20_221035_add_campus_field_into_quote_details_table",
+				"database/migrations/2016_11_20_221035_add_campus_field_into_quote_details_table.php"
+			],
+			[
+				"viewbasic",
+				"resources/views/admin/quotes/include/view_basic.blade.php"
+			],
+			[
+				"myquo",
+				"app/Http/Controllers/Front/MyQuoteListingController.php"
+			],
+			[
+				"admin-menu",
+				"resources/lang/en/admin-menu.php"
+			],
+			[
+				"leftmenu",
+				"resources/views/layouts/admin/include/leftmenu.blade.php"
+			],
+			[
+				"quotede",
+				"app/Models/QuoteDetail.php"
+			],
+			[
+				"quoterepo",
+				"app/Repositories/Eloquent/QuoteRepository.php"
+			],
+			[
+				"campusover",
+				"resources/views/admin/campuses/include/overview.blade.php"
+			],
+			[
+				"basic.",
+				"resources/views/admin/quotes/include/basic.blade.php"
+			],
+			[
+				"campuscon",
+				"app/Http/Controllers/Admin/CampusController.php"
+			],
+			[
+				"campusinde",
+				"resources/views/admin/campuses/include/overview.blade.php"
+			],
+			[
+				"campusform",
+				"resources/views/admin/campuses/form.blade.php"
+			],
+			[
+				"campusre",
+				"app/Repositories/Eloquent/CampusRepository.php"
+			],
+			[
+				"sometable",
+				"database/migrations/2016_11_18_223712_modify_some_field_and_some_table.php"
+			],
+			[
+				"accommodationre",
+				"app/Repositories/Eloquent/AccommodationRepository.php"
+			],
+			[
+				"frontbasecontroller",
+				"app/Http/Controllers/Front/FrontBaseController.php"
+			],
+			[
+				"mylistingcontroller",
+				"app/Http/Controllers/Front/MyListingController.php"
+			],
+			[
+				"myacco",
+				"app/Http/Controllers/Front/MyAccommodationListingController.php"
+			],
+			[
+				"campus",
+				"app/Models/Campus.php"
+			],
+			[
+				"some_table",
+				"database/migrations/2016_11_18_223712_modify_some_field_and_some_table.php"
+			],
+			[
+				"user",
+				"app/Models/User.php"
+			],
+			[
+				"2016_11_18_223712_modify_some_field_and_some_table",
+				"database/migrations/2016_11_18_223712_modify_some_field_and_some_table.php"
+			],
+			[
+				"campusrepo",
+				"app/Repositories/Eloquent/CampusRepository.php"
+			],
+			[
+				"campuscontroller",
+				"app/Http/Controllers/Admin/CampusController.php"
+			],
+			[
+				"myacc",
+				"app/Http/Controllers/Front/MyAccommodationListingController.php"
+			],
+			[
+				"accommodationdatamodified",
+				"app/Events/AccommodationDataModified.php"
+			],
+			[
+				"addressre",
+				"app/Repositories/Eloquent/AddressRepository.php"
+			],
+			[
+				"address",
+				"app/Models/Address.php"
+			],
+			[
+				"accommo",
+				"app/Models/Accommodation.php"
+			],
+			[
+				"baserepository",
+				"app/Repositories/Eloquent/BaseRepository.php"
+			],
+			[
+				"baselangrepository",
+				"app/Repositories/Eloquent/BaseLangRepository.php"
+			],
+			[
+				"myjo",
+				"app/Http/Controllers/Front/MyJobListingController.php"
+			],
+			[
+				"myaccommo",
+				"app/Http/Controllers/Front/MyAccommodationListingController.php"
+			],
+			[
+				"quotesbasi",
+				"resources/views/admin/quotes/include/basic.blade.php"
+			],
+			[
+				"quoteform",
+				"resources/views/front/mylisting/quote/form.blade.php"
+			],
+			[
+				"mylistingcontr",
+				"app/Http/Controllers/Front/MyListingController.php"
+			],
+			[
+				"myli",
+				"app/Http/Controllers/Front/MyListingController.php"
+			],
+			[
+				"mylin",
+				"app/Http/Controllers/Front/MyListingController.php"
+			],
+			[
+				"quotebasi",
+				"resources/views/admin/quotes/include/basic.blade.php"
+			],
+			[
+				"quotebas",
+				"resources/views/admin/quote/include/basic.blade.php"
+			],
+			[
+				"quotefor",
+				"resources/views/front/mylisting/quote/form.blade.php"
+			],
+			[
+				"quoterep",
+				"app/Repositories/Eloquent/QuoteRepository.php"
+			],
+			[
+				"accommodationrepo",
+				"app/Repositories/Eloquent/AccommodationRepository.php"
+			],
+			[
+				"accommodation",
+				"app/Http/Controllers/Front/AccommodationController.php"
+			],
+			[
+				"eventrepo",
+				"app/Repositories/Eloquent/EventRepository.php"
+			],
+			[
+				"admineve",
+				"resources/views/admin/dashboard/include/event.blade.php"
+			],
+			[
+				"event",
+				"app/Http/Controllers/Admin/EventController.php"
+			],
+			[
+				"eventcontroll",
+				"app/Http/Controllers/Admin/EventController.php"
+			],
+			[
+				"eventindex",
+				"resources/views/front/event/index.blade.php"
+			],
+			[
+				"quotefro",
+				"resources/views/admin/quotes/form.blade.php"
+			],
+			[
+				"jobre",
+				"app/Repositories/Eloquent/JobRepository.php"
+			],
+			[
+				"campusrep",
+				"app/Repositories/Eloquent/CampusRepository.php"
+			],
+			[
+				"agencyre",
+				"app/Repositories/Eloquent/AgencyRepository.php"
+			],
+			[
+				"quotebl",
+				"resources/views/front/includes/quotes.blade.php"
+			],
+			[
+				"left",
+				"resources/views/layouts/admin/include/leftmenu.blade.php"
+			],
+			[
+				"quote/fro",
+				"resources/views/front/mylisting/quote/form.blade.php"
+			],
+			[
+				"useradd",
+				"app/Models/UserAddress.php"
+			],
+			[
+				"agencyaddre",
+				"app/Models/AgencyAddress.php"
+			],
+			[
+				"agencycontroll",
+				"app/Http/Controllers/Admin/AgencyController.php"
+			],
+			[
+				"agency",
+				"app/Repositories/Eloquent/AgencyRepository.php"
+			],
+			[
+				"front-myli",
+				"resources/lang/en/front-mylisting.php"
+			],
+			[
+				"dashbo",
+				"app/Http/Controllers/Admin/DashboardController.php"
+			],
+			[
+				"dashboar",
+				"app/Http/Controllers/Admin/DashboardController.php"
+			],
+			[
+				"storageservice",
+				"app/Providers/StorageServiceProvider.php"
+			],
+			[
+				"authcontr",
+				"app/Http/Controllers/Auth/AuthController.php"
+			],
+			[
+				"authorization.php",
+				"config/authorization.php"
+			],
+			[
+				"/config/config.php",
+				"vendor/stevebauman/authorization/src/Config/config.php"
+			],
+			[
+				"config/config.php",
+				"vendor/devfactory/minify/src/config/config.php"
+			],
+			[
+				"app.php",
+				"config/app.php"
+			],
+			[
+				"composer",
+				"composer.json"
+			],
+			[
+				".env.tes",
+				".env.testing"
+			],
+			[
+				"session",
+				"config/session.php"
+			],
+			[
+				"config.",
+				"bootstrap/cache/config.php"
+			],
+			[
+				"startsession",
+				"vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php"
+			],
+			[
+				"sessionserviceprovider",
+				"vendor/laravel/framework/src/Illuminate/Session/SessionServiceProvider.php"
+			],
+			[
+				"dashboardcontroller",
+				"app/Http/Controllers/Admin/DashboardController.php"
+			],
+			[
+				"config",
+				"bootstrap/cache/config.php"
+			],
+			[
+				"eventlistener",
+				"vendor/swiftmailer/swiftmailer/lib/classes/Swift/Events/EventListener.php"
+			],
+			[
+				"authenticatesusers",
+				"vendor/laravel/framework/src/Illuminate/Foundation/Auth/AuthenticatesUsers.php"
+			],
+			[
+				"configapp.php",
+				"config/app.php"
+			],
+			[
+				"configdatabase",
+				"config/database.php"
+			],
+			[
+				"authserviceprovider",
+				"app/Providers/AuthServiceProvider.php"
+			],
+			[
+				"authcontro",
+				"app/Http/Controllers/Auth/AuthController.php"
+			],
+			[
+				"logincontr",
+				"app/Http/Controllers/Front/LoginController.php"
+			],
+			[
+				"configauth",
+				"config/auth.php"
+			],
+			[
+				".htaccess",
+				".htaccess"
+			],
+			[
+				"logincontro",
+				"app/Http/Controllers/Front/LoginController.php"
+			],
+			[
+				"homecon",
+				"app/Http/Controllers/Front/HomeController.php"
+			],
+			[
+				"mailboxhea",
+				"vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/Headers/MailboxHeader.php"
+			],
+			[
+				"coursere",
+				"app/Repositories/Eloquent/CourseRepository.php"
+			],
+			[
+				"course",
+				"app/Models/Course.php"
+			],
+			[
+				"partnerrepositoryinterface",
+				"app/Repositories/PartnerRepositoryInterface.php"
+			],
+			[
+				"enquiryrepository",
+				"app/Repositories/Eloquent/EnquiryRepository.php"
+			],
+			[
+				"partnerre",
+				"app/Repositories/Eloquent/PartnerRepository.php"
+			],
+			[
+				"institutere",
+				"app/Repositories/Eloquent/InstituteRepository.php"
+			],
+			[
+				"dashboard",
+				"app/Http/Controllers/Admin/DashboardController.php"
+			],
+			[
+				"partner",
+				"app/Http/Controllers/Admin/PartnerController.php"
+			],
+			[
+				"partnercon",
+				"app/Http/Controllers/Admin/PartnerController.php"
+			],
+			[
+				"coursecontro",
+				"app/Http/Controllers/Admin/CourseController.php"
+			],
+			[
+				"admin-title",
+				"resources/lang/en/admin-title.php"
+			],
+			[
+				"admin-new",
+				"resources/lang/en/admin-news.php"
+			],
+			[
+				"adminadmin_list",
+				"resources/views/layouts/admin/admin_list.blade.php"
+			],
+			[
+				"newscontroll",
+				"app/Http/Controllers/Admin/NewsController.php"
+			],
+			[
+				"",
+				"app/Http/Controllers/Admin/QuoteController.php"
+			],
+			[
+				"authcontroller",
+				"app/Http/Controllers/Auth/AuthController.php"
+			],
+			[
+				"veri",
+				"app/Http/Middleware/VerifyCsrfToken.php"
+			],
+			[
+				"verify",
+				"app/Http/Middleware/VerifyCsrfToken.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 383.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

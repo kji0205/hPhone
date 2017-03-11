@@ -1,0 +1,126 @@
+<template name="hphone">
+	<style type="text/css">
+
+		body {
+			background-color: white;
+			background-image: url();
+			margin: 10px;
+			color: #777777;
+			width: 90%;
+		}
+		.wrapper{
+			background-color: white;
+			
+		}
+		.wrapper .headerTitle {
+			background-color: #ffffff;
+			padding: 0px;
+			border-top: 4px solid #FF6F0F;
+			border-bottom: 1px solid #ECECEC;
+		}
+		.wrapper .headerTitle h2{
+			background-color: white;
+			
+			color: #1D1C1C;
+		}
+		.info{
+			border: 1px solid #E6E6E6;
+			padding: 5px;
+			background-color: #FBFBFB;
+			margin: 0px;
+			padding: 5px;
+			/*margin: 20px;
+			padding: 10px;
+			border: 1px solid red;*/
+		}
+		.divInputArea table {
+			border-collapse: collapse;
+			width:100%;
+			margin:10px;
+			border-top: 2px solid gray;
+			border-bottom: 2px solid #C3BFBA;
+		}
+		.divInputArea td, th {
+			
+			padding: 5px;
+		}
+	</style>
+	<div class="wrapper">
+		<div class="headerTitle">
+			<h2><img src="/img/sklogo.png" style="width:100px">대방 온라인 공식대리점</h2>
+		</div>
+		<div style="margin-top: 20px">
+			<div class="info">
+				<p> - 명의자 확인에 필요한 내용을 신청서와 동일하게 입력하여 주십시오.</p>	
+				<p> - 명의자는 유무선 실가입자를 말합니다.</p>
+				<p> - T gate에 접수하신 휴대폰 신청 내역 중 장기간 개봉되지 않고 대기 상태로 남아있는 경우는 소중한 <span style="color:#F9A98A">고객정보 보호를 위해 신청일 기준으로 2개월 경과 후 자동 취소</span> 되오니 참고하시기 바랍니다.</p>
+			</div>
+			
+		</div>
+		<div style="margin-top: 20px; padding: 10px">
+			<div style="margin: 5px;">
+				<span style="color: #F77E4C"> *아래에 해당하는 정보를 정확하게 입력해 주세요.</span>
+			</div>
+
+			<form class="main form form-horizontal">
+			<div class="form-group">
+				<label class="col-md-2 control-label" style="text-align: center;" for="rType">가입유형</label>
+				<div class="col-md-4">
+					<select id="rType" name="rType">
+						<option value="신규/번호이동">신규/번호이동</option>
+						<option value="기기변경">기기변경</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-2 control-label" style="text-align: center" for="rGubun">고객구분</label>
+				<div class="controls">
+					<input type="radio" name="rGubun" value="개인(일반)" checked="true">&nbsp;개인(일반)&nbsp;
+					<input type="radio" name="rGubun" value="법인(B2C)">&nbsp;법인(B2C)&nbsp;
+					<input type="radio" name="rGubun" value="외국인(등록증)">&nbsp;외국인(등록증)&nbsp;
+					<input type="radio" name="rGubun" value="외국인(번호)">&nbsp;외국인(번호)&nbsp;
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-2 control-label" style="text-align: center" for="title">이름</label>
+				<div class="controls">
+					<input type="text" name="rName" placeholder="홍길동">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-2 control-label" style="text-align: center" for="title">생년월일</label>
+				<div class="controls">
+					<input type="text" name="rBirth" placeholder="19720311">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-2 control-label" style="text-align: center" for="title">성별</label>
+				<div class="controls">
+					<input type="radio" name="rSex" value="남성" checked="true">&nbsp;남성&nbsp;
+					<input type="radio" name="rSex" value="여성">&nbsp;여성&nbsp;
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-2 control-label" style="text-align: center" for="title">연락처</label>
+				<div class="controls">
+					<input type="text" name="rPhone" placeholder="01012345678"> * - 없이 입력해주세요.
+				</div>
+			</div>
+			<input type="submit" id="btnSubmit" value="신청하기" class="btn btn-primary btn-block "/>
+			</form>
+
+		</div>
+		<div>
+			<!-- <input type="button" id="btnSubmit" value="확인"> -->
+			
+		</div>
+  </div>
+  <script type="text/javascript">
+  	// (function(){
+  	// 	var btn = document.getElementById("btnSubmit");
+  	// 	btn.addEventListener("click", function(){
+  	// 		alert(123);
+  	// 	});
+  	// })();
+  </script>
+</template>
