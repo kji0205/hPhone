@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"backgr",
+				"background-image"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
 				"off",
 				"offsetX"
 			],
@@ -71,43 +79,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "client/templates/hPhone/hphoneList.html",
-			"settings":
-			{
-				"buffer_size": 305,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "client/templates/hPhone/hphonelist.js",
-			"settings":
-			{
-				"buffer_size": 86,
-				"encoding": "UTF-8",
-				"line_ending": "Unix",
-				"name": "Template.postsList.helpers({"
-			}
-		},
-		{
-			"file": "client/templates/hPhone/request.html",
-			"settings":
-			{
-				"buffer_size": 2620,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "client/templates/hPhone/request.js",
-			"settings":
-			{
-				"buffer_size": 477,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -151,8 +122,13 @@
 	"expanded_folders":
 	[
 		"/Users/jimmy/repo/hPhone",
+		"/Users/jimmy/repo/hPhone/.meteor",
+		"/Users/jimmy/repo/hPhone/.meteor/local",
+		"/Users/jimmy/repo/hPhone/.meteor/local/shell",
 		"/Users/jimmy/repo/hPhone/client",
+		"/Users/jimmy/repo/hPhone/client/stylesheet",
 		"/Users/jimmy/repo/hPhone/client/templates",
+		"/Users/jimmy/repo/hPhone/client/templates/application",
 		"/Users/jimmy/repo/hPhone/client/templates/hPhone",
 		"/Users/jimmy/repo/hPhone/client/templates/posts",
 		"/Users/jimmy/repo/hPhone/lib",
@@ -161,9 +137,22 @@
 	],
 	"file_history":
 	[
+		"/Users/jimmy/Downloads/xf.1.0.0/xf_config.asp",
+		"/Users/jimmy/Downloads/xf.1.0.0/xf_close.asp",
+		"/Users/jimmy/Downloads/xf.1.0.0/classes/ConnectionClasses.asp",
+		"/Users/jimmy/Downloads/xf.1.0.0/classes/FileClasses.asp",
+		"/Users/jimmy/Downloads/xf.1.0.0/classes/FunctionClasses.asp",
+		"/Users/jimmy/Downloads/xf.1.0.0/classes/SiteGalaxyClasses.asp",
+		"/Users/jimmy/repo/hPhone/client/templates/application/empty.html",
+		"/Users/jimmy/repo/hPhone/lib/router.js",
+		"/Users/jimmy/repo/hPhone/mup.js",
+		"/Users/jimmy/repo/hPhone/mup.json",
+		"/Users/jimmy/repo/hPhone/client/templates/hPhone/request.js",
+		"/Users/jimmy/repo/hPhone/client/templates/hPhone/request.html",
+		"/Users/jimmy/repo/hPhone/client/templates/hPhone/hphonelist.js",
+		"/Users/jimmy/repo/hPhone/client/templates/hPhone/hphoneList.html",
 		"/Users/jimmy/Library/Application Support/Sublime Text 3/Packages/User/sftp_servers/sftp-config.json",
 		"/Users/jimmy/repo/hPhone/sftp-config.json",
-		"/Users/jimmy/repo/hPhone/client/templates/hPhone/hphoneList.html",
 		"/var/folders/_r/8k7x1jsd45l4qz5rp0_hnbrw0000gn/T/sublime-sftp-browse-1489184337/sftp-config.json/home/ec2-user/hPhone/client/templates/hPhone/request.html",
 		"/var/folders/_r/8k7x1jsd45l4qz5rp0_hnbrw0000gn/T/sublime-sftp-browse-1489159119/sftp-config.json/home/ec2-user/hPhone/server/main.js",
 		"/var/folders/_r/8k7x1jsd45l4qz5rp0_hnbrw0000gn/T/sublime-sftp-browse-1489152311/sftp-config.json/home/ec2-user/hPhone/client/stylesheet/style.css",
@@ -275,20 +264,7 @@
 		"/Users/jimmy/Projects/edwy/app/Http/Controllers/Front/LoginController.php",
 		"/Users/jimmy/Projects/edwy/server.php",
 		"/Users/jimmy/Projects/edwy/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php",
-		"/Users/jimmy/Projects/edwy/composer.json",
-		"/Users/jimmy/Projects/edwy/config/app.php",
-		"/Users/jimmy/Projects/edwy/vendor/stevebauman/authorization/src/AuthorizationServiceProvider.php",
-		"/Users/jimmy/Projects/edwy/config/authorization.php",
-		"/Users/jimmy/Projects/edwy/vendor/stevebauman/authorization/src/Config/config.php",
-		"/Users/jimmy/Projects/edwy/vendor/devfactory/minify/src/config/config.php",
-		"/Users/jimmy/Projects/edwy/app/Http/Middleware/VerifyCsrfToken.php",
-		"/Users/jimmy/Projects/edwy/artisan",
-		"/Users/jimmy/Projects/edwy/.env.testing",
-		"/Users/jimmy/Projects/edwy/vendor/laravel/framework/src/Illuminate/Session/SessionServiceProvider.php",
-		"/Users/jimmy/Projects/edwy/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php",
-		"/Users/jimmy/Projects/edwy/vendor/laravel/framework/src/Illuminate/Container/Container.php",
-		"/Users/jimmy/Projects/edwy/vendor/laravel/framework/src/Illuminate/Foundation/Auth/ThrottlesLogins.php",
-		"/Users/jimmy/Projects/edwy/vendor/laravel/framework/src/Illuminate/Cache/RateLimiter.php"
+		"/Users/jimmy/Projects/edwy/composer.json"
 	],
 	"find":
 	{
@@ -309,6 +285,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"남성",
+			"style",
 			"mp4",
 			");",
 			"campus_info",
@@ -434,9 +412,7 @@
 			"edit",
 			"admin-main",
 			"192.168.25.56",
-			"lang_id",
-			"function associate",
-			"function addr_value"
+			"lang_id"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -472,137 +448,8 @@
 	"groups":
 	[
 		{
-			"selected": 3,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "client/templates/hPhone/hphoneList.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 305,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								35,
-								35
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"origin_encoding": "ASCII",
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/HTML/HTML.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "client/templates/hPhone/hphonelist.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 86,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								70,
-								70
-							]
-						],
-						"settings":
-						{
-							"auto_name": "Template.postsList.helpers({",
-							"incomplete_sync": null,
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "client/templates/hPhone/request.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2620,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1943,
-								1943
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 912.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "client/templates/hPhone/request.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 477,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								358,
-								358
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"origin_encoding": "ASCII",
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -658,6 +505,22 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"request.js",
+				"client/templates/hPhone/request.js"
+			],
+			[
+				"mup.js",
+				"mup.js"
+			],
+			[
+				"hphone",
+				"client/templates/hPhone/request.html"
+			],
+			[
+				"lay",
+				"client/templates/application/layout.html"
+			],
 			[
 				".env",
 				".env"
@@ -1153,22 +1016,6 @@
 			[
 				"newscontroll",
 				"app/Http/Controllers/Admin/NewsController.php"
-			],
-			[
-				"",
-				"app/Http/Controllers/Admin/QuoteController.php"
-			],
-			[
-				"authcontroller",
-				"app/Http/Controllers/Auth/AuthController.php"
-			],
-			[
-				"veri",
-				"app/Http/Middleware/VerifyCsrfToken.php"
-			],
-			[
-				"verify",
-				"app/Http/Middleware/VerifyCsrfToken.php"
 			]
 		],
 		"width": 0.0

@@ -1,0 +1,415 @@
+
+<template name="mine" namespace="foo">
+	<style type="text/css">
+    body {
+        width: 400px;
+    }
+    
+    .wrapper {
+        border: 2px dotted gray;
+    }
+    
+    table {
+        border: 2px solid black;
+    }
+    
+    tr {
+    }
+    
+    td {
+        border: 1px solid gray;
+        background-color: #9e9e9e;
+        width: 15px;
+        text-align: center;
+        color: #9e9e9e;
+    }
+    .td2 {
+        border: 1px solid gray;
+        background-color: #e6e6e6;
+        width: 15px;
+    }
+    .td3 {
+        border: 1px solid gray;
+        background-color: red;
+        width: 15px;
+    }
+    .td4 {
+        border: 1px solid gray;
+        background-color: green;
+        width: 15px;
+    }
+    .resultLayer{
+        /*display: none;*/
+        background-color: blue;
+        color: white;
+        font-size: 27px;
+        font-style: italic;
+        padding: 5px;
+        position: absolute;
+        top: -50px;
+        left: -20px;
+
+        -webkit-transform: translate(0, 0);
+        -webkit-transition: -webkit-transform 500ms;
+
+        transform: translate(0, 0);
+        transition: transform 500ms;
+    }
+    .resultLayer.move {
+        background-color: blue;
+        color: white;
+        font-size: 27px;
+        font-style: italic;
+        padding: 5px;
+        position: absolute;
+
+        -webkit-transform: translate(60px, 170px);
+        transform: translate(60px, 170px);
+    }
+    .resultLayer.move2 {
+        background-color: red;
+        color: white;
+        font-size: 27px;
+        font-style: italic;
+        padding: 5px;
+        position: absolute;
+
+        -webkit-transform: translate(60px, 170px);
+        transform: translate(60px, 170px);
+    }
+
+    </style>
+    <div class="row">
+        <div class="col-xs-12 col-md-8">
+            <button onclick="javascript:document.location.reload();">New Start</button>
+            <label id='' class="lbl"></label>
+            <input type="hidden" id="lblTime" name="" value="" data-time="">
+        </div>
+        <div class="col-xs-12 col-md-8 tblArea">
+            
+        </div>
+        <div class="resultLayer"> CLEAR GAME</div>
+
+    </div>
+    <div>
+        <div><h3>*순위</h3></div>
+        <div>
+        {{#each landMineRecord}}
+            <h4>
+            <span>{{offset @index}}위 IP: {{clientIp}}, 시간: {{time}}초, 등록: {{now}}</span>
+            </h4>
+        {{/each}}
+        </div>
+    </div>
+    <script type="text/javascript">
+
+    
+
+    // 
+    const horizontalSize = 10;      // 가로사이즈
+    const verticalSize = horizontalSize;    // 세로사이즈
+    const hvSize = horizontalSize * verticalSize;
+    // console.log('horizontalSize :: ' + horizontalSize);
+    // console.log('verticalSize :: ' + verticalSize);
+    // console.log('hvSize :: ' + hvSize);
+
+    // 게임중인지 확인할 수 있는 변수
+    var nowPlaying = 'Y';   
+
+    // 10 * 10 매트릭스 만들기
+    var fnMakeTable = function makeTable(){
+        var table = document.createElement('table');
+
+        for (var i = verticalSize - 1; i >= 0; i--) {
+            var tr = document.createElement('tr');
+            for (var j = horizontalSize - 1; j >= 0; j--) {
+                var td = document.createElement('td');
+                tr.appendChild(td);
+            }
+            table.appendChild(tr);
+        }
+        document.querySelector('.tblArea').innerHTML = '';
+        document.querySelector('.tblArea').appendChild(table);    
+    }
+    fnMakeTable();
+
+    var td = document.getElementsByTagName('td');
+    var tdArr = new Array(100);     // 탐색 여부를 확인하기 위한 배열
+    var tdArrInit = function(){
+        for (var i = tdArr.length - 1; i >= 0; i--) {
+            tdArr[i] = 'N';
+        }    
+    }
+    tdArrInit();
+
+    const maxMineCount = 15; // 최대 X의 갯수
+    var currentMineCount = 0; // 현재 X의 갯수
+
+    // var fnInit = (function(p) {
+    //     // console.log(event.button);
+    //     return function() {
+    //         // console.log(p);
+    //         if (td[p].innerText === 'X') {
+    //             alert('Fail');
+    //             fnShowX();
+    //             // td[p].className = 'td3';
+    //         } else {
+    //             fnAction(p);
+    //             td[p].className = 'td2';
+    //         }
+    //     }
+    // });
+
+    // 주변 8개의 td 검사 (3*3)
+    var fnAction = (function action(seq, gubun) {
+
+        console.log('seq :: ' + seq);
+
+        var seqBefore = seq - horizontalSize;
+        var seqAfter = seq + horizontalSize;
+
+        /*
+            c1  c   c2
+            a   자신 b
+            d1  d   d2
+        */
+        var a = td[seq - 1] && (seq - 1) % horizontalSize !== 9 ? td[seq - 1].innerText : '';
+        var b = td[seq + 1] && (seq + 1) % horizontalSize !== 0 ? td[seq + 1].innerText : '';
+        var c = td[seqBefore] ? td[seqBefore].innerText : '';
+        var c1 = td[seqBefore - 1] && parseInt((seqBefore-1) % horizontalSize, 10) !== 9 ? td[seqBefore - 1].innerText : '';
+        var c2 = td[seqBefore + 1] && parseInt((seqBefore+1) % horizontalSize, 10) !== 0 ? td[seqBefore + 1].innerText : '';
+        var d = td[seqAfter] ? td[seqAfter].innerText : '';
+        var d1 = td[seqAfter - 1] && parseInt((seqAfter-1) % horizontalSize, 10) !== 9 ? td[seqAfter - 1].innerText : '';
+        var d2 = td[seqAfter + 1] && parseInt((seqAfter+1) % horizontalSize, 10) !== 0 ? td[seqAfter + 1].innerText : '';
+
+        var tmpCount = 0;   // 자신과 붙어있는 X의 갯수를 저장
+        if (td[seq].innerText === 'X') {
+
+        }
+        // 근처에 X가 있다면 (3*3 탐색) 
+        else if (a === 'X' || b === 'X' || c === 'X' || d === 'X' || 
+            c1 === 'X' || c2 === 'X' || d1 === 'X' || d2 === 'X') {
+
+            if (td[seq - 1] && td[seq - 1].innerText === 'X' && (seq - 1) % horizontalSize !== 9) {
+                tmpCount++;
+            }
+            if (td[seq + 1] && td[seq + 1].innerText === 'X' && (seq + 1) % horizontalSize !== 0) {
+                tmpCount++;
+            }
+            if (td[seqBefore] && td[seqBefore].innerText === 'X') { 
+                tmpCount++;
+            }
+            if (td[seqAfter] && td[seqAfter].innerText === 'X') {
+                tmpCount++;
+            }
+            if (parseInt((seq - 1) % horizontalSize, 10) !== 9 && parseInt((seq - 1) % horizontalSize, 10) >= 0) {
+                if (td[seqBefore - 1] && td[seqBefore - 1].innerText === 'X') {
+                    tmpCount++;
+                }
+                if (td[seqAfter - 1] && td[seqAfter - 1].innerText === 'X') {
+                    tmpCount++;
+                }
+            }
+            if (parseInt((seq + 1) % horizontalSize, 10) !== 0 && parseInt((seq + 1) % horizontalSize, 10) >= 0) {
+                if (td[seqBefore + 1] && td[seqBefore + 1].innerText === 'X' ) {
+                    tmpCount++;
+                }
+                if (td[seqAfter + 1] && td[seqAfter + 1].innerText === 'X' ) {
+                    tmpCount++;
+                }
+            }
+            if (tmpCount > 0 && td[seq] != 'X') {
+                td[seq].innerText = tmpCount;    
+            }
+            
+        } else {
+            // 주변에 X가 없다면 TD의 배경색을 밝은 회색으로 변경한다.(오픈의 의미)
+            // 그리고 계속해서 자신과 인접한 8개의 TD를 탐색한다.
+            // 이 때 경우의 수를 줄이기 위해 전역으로 선언한 배열에 각각의 TD의 체크여부를 저장한다.
+            if (td[seq - 1] && (seq - 1) % horizontalSize !== 9 ) {
+                td[seq - 1].className = 'td2';
+                if (tdArr[seq - 1] == 'N') {
+                    tdArr[seq - 1] = 'Y';
+                    fnAction(seq - 1, 1);
+                }
+            }
+            if (td[seq + 1] && (seq + 1) % horizontalSize !== 0 ) {
+                td[seq + 1].className = 'td2';
+                if (tdArr[seq + 1] == 'N') {
+                    tdArr[seq + 1] = 'Y';
+                    fnAction(seq + 1, 1);
+                }
+            }
+            if (td[seqBefore]) {
+                td[seqBefore].className = 'td2';
+                if (tdArr[seqBefore] == 'N') {
+                    tdArr[seqBefore] = 'Y';
+                    fnAction(seqBefore, 1);
+                }
+            }
+            if (td[seqAfter]) {
+                td[seqAfter].className = 'td2';
+                if (tdArr[seqAfter] == 'N') {
+                    tdArr[seqAfter] = 'Y';
+                    fnAction(seqAfter, 1);
+                }
+            }
+            if (parseInt((seq - 1) % horizontalSize, 10) !== 9 && parseInt((seq - 1) % horizontalSize, 10) >= 0) {
+                if (td[seqBefore - 1]) {
+                    td[seqBefore - 1].className = 'td2';
+                    if (tdArr[seqBefore - 1] == 'N') {
+                        tdArr[seqBefore - 1] = 'Y';
+                        fnAction(seqBefore - 1, 1);
+                    }
+                }
+                if (td[seqAfter - 1]) {
+                    td[seqAfter - 1].className = 'td2';
+                    if (tdArr[seqAfter - 1] == 'N') {
+                        tdArr[seqAfter - 1] = 'Y';
+                        fnAction(seqAfter - 1, 1);
+                    }
+                }
+            }
+            if (parseInt((seq + 1) % horizontalSize, 10) !== 0 && parseInt((seq + 1) % horizontalSize, 10) >= 0) {
+                if (td[seqBefore + 1] && parseInt((seq+1) % horizontalSize, 10) !== 0 ) {
+                    td[seqBefore + 1].className = 'td2';
+                    if (tdArr[seqBefore + 1] == 'N') {
+                        tdArr[seqBefore + 1] = 'Y';
+                        fnAction(seqBefore + 1, 1);
+                    }
+                }
+                if (td[seqAfter + 1] && parseInt((seq + 1) % horizontalSize, 10) !== 0 ) {
+                    td[seqAfter + 1].className = 'td2';
+                    if (tdArr[seqAfter + 1] == 'N') {
+                        tdArr[seqAfter + 1] = 'Y';
+                        fnAction(seqAfter + 1, 1);
+                    }
+                }
+            }
+        }
+        return false;
+    });
+
+    var SetTime = 60; // 게임 플레이타임
+
+    var msg_time = function() { // 1초씩 카운트
+
+        m = Math.floor(SetTime / 60) + '분 ' + (SetTime % 60) + '초'; // 남은 시간 계산
+        m2 = SetTime;
+        document.querySelector('.lbl').innerText = m;
+        $('#lblTime').val(m2);
+        SetTime--; // 1초씩 감소
+        if (SetTime < 0) { // 시간이 종료 되었으면..
+            clearInterval(tid); // 타이머 해제
+            // alert("종료");
+            fnShowX();
+        } else {
+            fnGameClearMonitoring();
+        }
+    }
+
+    window.onload = function TimerStart() {
+        var agent = navigator.userAgent.toLowerCase();
+        if (agent.indexOf("msie") != -1) {
+            alert("인터넷익스플로러 10버전까지는 지원하지 않습니다.");
+            return false;
+        }
+        tid = setInterval('msg_time()', 1000);
+    };
+
+    // TD에 이벤트 걸기
+    for (var i = td.length - 1; i >= 0; i--) {
+        
+        td[i].innerHTML = '&nbsp;';
+        td[i].addEventListener('click', (function(i){
+
+            return function(){
+                if (nowPlaying == 'N') { return false;}
+                if (td[i].className == 'td4') { return false;}
+                if (td[i].innerText === 'X') {
+                    // alert('Game Over');
+                    fnShowX();
+                    // td[i].className = 'td3';
+                } else {
+                    fnAction(i);
+                    td[i].className = 'td2';
+                }
+            }
+        }(i)), false);
+
+        td[i].addEventListener('contextmenu', (function(i) {
+
+            return function(e){
+                e.preventDefault();
+                if (nowPlaying == 'N') { return false;}
+                if (td[i].innerText === 'X') {
+                    console.log('X');
+                    td[i].className = 'td4';
+                } else {
+                    // alert('Game Over');
+                    fnShowX();
+                }
+            }
+        }(i)), false);
+    }
+
+    // X 랜덤하게 심기
+    for (var i = maxMineCount; i > 0; i--) {
+        var n = Math.floor(Math.random() * hvSize) + 1;
+        // console.log(n);
+        td[n - 1].innerText = 'X';
+    }
+    // td[62].innerText = 'X';      // TEST
+
+    // 마우스 우클릭 방지
+    // function click() {
+    //     if ((event.button==1) || (event.button==2))  {
+    //         console.log('right click');
+    //     }
+    // }
+    // document.onmousedown=click;
+
+    // 실패시 전체 X의 위치 표시
+    var fnShowX = function showX(){
+
+        for (var i = td.length - 1; i >= 0; i--) {
+            if (td[i].innerText == 'X') {
+                td[i].className = 'td3';
+            }
+        }
+        
+        nowPlaying = 'N';   // Game Over
+        clearTimeout(tid);
+        document.querySelector('.lbl').innerText = 'Game Over';
+        document.querySelector('.resultLayer').innerText = 'Game Over';
+        document.querySelector('.resultLayer').classList.add('move2');
+    }
+
+    // 종료 함수
+    var fnCloseGame = function closeGame(){
+        nowPlaying = 'N';
+    }
+
+    // 게임 클리어 확인 함수
+    var fnGameClearMonitoring = function gameClearMonitoring(){
+        var flag = true;
+        for (var i = td.length - 1; i >= 0; i--) {
+            if (td[i].innerText == 'X') {
+                if (td[i].className != 'td4') {
+                    flag = false;
+                }
+            }
+        }
+        if (flag && SetTime < 59 ) {
+            nowPlaying = 'N';   
+            clearTimeout(tid);
+            document.querySelector('.lbl').innerText = 'Game Clear';  
+            document.querySelector('.resultLayer').innerText = 'Game Clear';
+            document.querySelector('.resultLayer').classList.add('move');  
+            success();
+        }
+        return flag;
+    }
+
+    </script>
+</template>
