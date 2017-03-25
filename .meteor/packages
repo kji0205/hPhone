@@ -22,3 +22,5 @@ underscore@1.0.10
 iron:router
 sacha:spin
 session@1.1.7
+accounts-ui
+accounts-password
