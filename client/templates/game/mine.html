@@ -295,7 +295,7 @@
         
         nowPlaying = 'N';   // Game Over
         clearTimeout(tid);
-        document.querySelector('.lbl').innerText = 'Game Over';
+        // document.querySelector('.lbl').innerText = 'Game Over';
         document.querySelector('.resultLayer').innerText = 'Game Over';
         document.querySelector('.resultLayer').classList.add('move2');
     }
@@ -318,7 +318,7 @@
         if (flag && SetTime < 59 ) {
             nowPlaying = 'N';   
             clearTimeout(tid);
-            document.querySelector('.lbl').innerText = 'Game Clear';  
+            // document.querySelector('.lbl').innerText = 'Game Clear';  
             document.querySelector('.resultLayer').innerText = 'Game Clear';
             document.querySelector('.resultLayer').classList.add('move');  
             success();
