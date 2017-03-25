@@ -21,14 +21,24 @@ Template.mine.onRendered(function() {
 		var hour = today.getUTCHours();
 		var minute = today.getUTCMinutes();
 		var today = year + '/' + month + '/' + day + ' ' + hour + ':' + minute;
+		// var clientIP = this.connection.clientAddress;
+
+// console.log('clientIP :: ' + ip);
+		var userObj = Meteor.user();
+		var userEmail = '';
+		if (userObj) {
+			userEmail = Meteor.user().emails[0].address;	
+		}
+		
 
 	    var record = {
 	      game: 'landMine',
 	      win: 'Y',
-	      clientIp: ip,
+	      clientIp: ip || 'unknown',
 	      time: nTime,
 	      now: today,
-	      UTC: UTC
+	      UTC: UTC,
+	      email: userEmail
 	    };
 	    if (record.clientIp) {
 	    	landMineRecord._id = landMineRecord.insert(record);	
@@ -40,9 +50,13 @@ Template.mine.onRendered(function() {
 Template.mine.helpers({
 	
 	landMineRecord: function() {
-		return landMineRecord.find({}, {
+		return landMineRecord.find({
+			"email": {
+				$exists: true
+			}
+		}, {
 			limit: 10,
-			sort: {time: -1}
+			sort: {time: -1},
 		});
 	},
 	"offset": function(index){
