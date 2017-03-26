@@ -31,329 +31,257 @@
     <!-- {{/HammerTouchArea}} -->    
 
     <script type="text/javascript">
-    // 
-    const horizontalSize = 10;      // 가로사이즈
-    const verticalSize = horizontalSize;    // 세로사이즈
-    const hvSize = horizontalSize * verticalSize;
-    // console.log('horizontalSize :: ' + horizontalSize);
-    // console.log('verticalSize :: ' + verticalSize);
-    // console.log('hvSize :: ' + hvSize);
+    class LandMine {
+        constructor(wSize=10, maxMineCount, setTime){
+            this.wSize = wSize;
+            this.vSize = wSize;
+            this.wvSize = this.wSize * this.vSize;
+            this.nowPlaying = 'N'; 
+            this.maxMineCount = maxMineCount; // 최대 X의 갯수
+            this.currentMineCount = 0; // 현재 X의 갯수
+            this.setTime = setTime; // 게임 플레이타임
 
-    // 게임중인지 확인할 수 있는 변수
-    var nowPlaying = 'Y';   
+            this.table;
+            this.td;
+            this.tdArr;
 
-    // 10 * 10 매트릭스 만들기
-    var fnMakeTable = function makeTable(){
-        var table = document.createElement('table');
-
-        for (var i = verticalSize - 1; i >= 0; i--) {
-            var tr = document.createElement('tr');
-            for (var j = horizontalSize - 1; j >= 0; j--) {
-                var td = document.createElement('td');
-                tr.appendChild(td);
-            }
-            table.appendChild(tr);
+            this.init();
         }
-        document.querySelector('.tblArea').innerHTML = '';
-        document.querySelector('.tblArea').appendChild(table);    
+        init(){
+            this.nowPlaying = 'Y'; 
+            this.makeTable();
+            this.tdArrInit();
+            this.randomX();
+            this.tdAttachEvent();   // TD에 이벤트 걸기
+            this.msg_time();
+        }
+        makeTable(){
+            this.table = document.createElement('table');
+            for (let i = this.vSize - 1; i >= 0; i--) {
+                let tr = document.createElement('tr');
+                for (let j = this.wSize - 1; j >= 0; j--) {
+                    let td = document.createElement('td');
+                    tr.appendChild(td);
+                }
+                this.table.appendChild(tr);
+            }
+            document.querySelector('.tblArea').innerHTML = '';
+            document.querySelector('.tblArea').appendChild(this.table);  
+        }
+        tdArrInit(){
+            this.td = document.getElementsByTagName('td');
+            this.tdArr = new Array(100);     // 탐색 여부를 확인하기 위한 배열
+            for (let i = this.tdArr.length - 1; i >= 0; i--) {
+                this.tdArr[i] = 'N';
+            }    
+        }
+        // X 랜덤하게 심기
+        randomX(){
+            for (let i = this.maxMineCount; i > 0; i--) {
+                let n = Math.floor(Math.random() * this.wvSize) + 1;
+                this.td[n - 1].innerText = 'X';
+            }
+        }
+        // TD에 이벤트 걸기
+        tdAttachEvent(){
+            for (let i = this.td.length - 1; i >= 0; i--) {
+                if (this.td[i].innerText !== 'X') this.td[i].innerHTML = '&nbsp;';
+                let hammertime = new Hammer(this.td[i]);
+                hammertime.on('press', (function(i, td, that) {
+                    // ev.preventDefault();
+                    return function(e){
+                        e.preventDefault();
+                        if (that.nowPlaying == 'N') { return false;}
+                        if (td.innerText === 'X') {
+                            td.className = 'td4';
+                        } else {
+                            that.showX();
+                        }
+                    }
+                }(i, this.td[i], this)), false);
+                this.td[i].addEventListener('click', (function(i, td, that){
+                    return function(){
+                        if (that.nowPlaying == 'N') { return false;}
+                        if (td.className == 'td4') { return false;}
+                        if (td.innerText === 'X') {
+                            // alert('Game Over');
+                            that.showX();
+                            // td[i].className = 'td3';
+                        } else {
+                            that.action(i);
+                            td.className = 'td2';
+                        }
+                    };
+                }(i, this.td[i], this)), false);
+                this.td[i].addEventListener('contextmenu', (function(i, td, that) {
+                    return function(e){
+                        e.preventDefault();
+                        if (that.nowPlaying == 'N') { return false;}
+                        if (td.innerText === 'X') {
+                            td.className = 'td4';
+                        } else {
+                            that.showX();
+                        }
+                    }
+                }(i, this.td[i], this)), false);
+            }
+        }
+        action(seq, gubun){
+            const seqBefore = seq - this.wSize;
+            const seqAfter = seq + this.wSize;
+
+            /*
+                c1  c   c2
+                a   자신 b
+                d1  d   d2
+            */
+            let a = this.td[seq - 1] && (seq - 1) % this.wSize !== 9 ? this.td[seq - 1] : '';
+            let b = this.td[seq + 1] && (seq + 1) % this.wSize !== 0 ? this.td[seq + 1] : '';
+            let c = this.td[seqBefore] ? this.td[seqBefore] : '';
+            let c1 = this.td[seqBefore - 1] && parseInt((seqBefore - 1) % this.wSize, 10) !== 9 ? this.td[seqBefore - 1] : '';
+            let c2 = this.td[seqBefore + 1] && parseInt((seqBefore + 1) % this.wSize, 10) !== 0 ? this.td[seqBefore + 1] : '';
+            let d = this.td[seqAfter] ? this.td[seqAfter] : '';
+            let d1 = this.td[seqAfter - 1] && parseInt((seqAfter - 1) % this.wSize, 10) !== 9 ? this.td[seqAfter - 1] : '';
+            let d2 = this.td[seqAfter + 1] && parseInt((seqAfter + 1) % this.wSize, 10) !== 0 ? this.td[seqAfter + 1] : '';
+
+            let tmpCount = 0;   // 자신과 붙어있는 X의 갯수를 저장
+            if (this.td[seq].innerText === 'X') {
+                return false;
+            }
+            // 근처에 X가 있다면 (3*3 탐색) 
+            if (a.innerText === 'X') { tmpCount++; }
+            if (b.innerText === 'X') { tmpCount++; }
+            if (c.innerText === 'X') { tmpCount++; }
+            if (c1.innerText === 'X') { tmpCount++; }
+            if (c2.innerText === 'X') { tmpCount++; }
+            if (d.innerText === 'X') { tmpCount++; }
+            if (d1.innerText === 'X') { tmpCount++; }
+            if (d2.innerText === 'X') { tmpCount++; }
+            if (tmpCount > 0 && this.td[seq] != 'X') {
+                this.td[seq].innerText = tmpCount;    
+            }
+            else {
+                // 주변에 X가 없다면 TD의 배경색을 밝은 회색으로 변경한다.(오픈의 의미)
+                // 그리고 계속해서 자신과 인접한 8개의 TD를 탐색한다.
+                // 이 때 경우의 수를 줄이기 위해 전역으로 선언한 배열에 각각의 TD의 체크여부를 저장한다.
+                if (a) {
+                    a.className = 'td2';
+                    if (this.tdArr[seq - 1] == 'N') {
+                        this.tdArr[seq - 1] = 'Y';
+                        this.action(seq - 1, 1);
+                    }
+                }
+                if (b) {
+                    b.className = 'td2';
+                    if (this.tdArr[seq + 1] == 'N') {
+                        this.tdArr[seq + 1] = 'Y';
+                        this.action(seq + 1, 1);
+                    }
+                }
+                if (c) {
+                    c.className = 'td2';
+                    if (this.tdArr[seqBefore] == 'N') {
+                        this.tdArr[seqBefore] = 'Y';
+                        this.action(seqBefore, 1);
+                    }
+                }
+                if (d) {
+                    d.className = 'td2';
+                    if (this.tdArr[seqAfter] == 'N') {
+                        this.tdArr[seqAfter] = 'Y';
+                        this.action(seqAfter, 1);
+                    }
+                }
+                if (c1) {
+                    c1.className = 'td2';
+                    if (this.tdArr[seqBefore - 1] == 'N') {
+                        this.tdArr[seqBefore - 1] = 'Y';
+                        this.action(seqBefore - 1, 1);
+                    }
+                }
+                if (d1) {
+                    d1.className = 'td2';
+                    if (this.tdArr[seqAfter - 1] == 'N') {
+                        this.tdArr[seqAfter - 1] = 'Y';
+                        this.action(seqAfter - 1, 1);
+                    }
+                }
+                if (c2) {
+                    c2.className = 'td2';
+                    if (this.tdArr[seqBefore + 1] == 'N') {
+                        this.tdArr[seqBefore + 1] = 'Y';
+                        this.action(seqBefore + 1, 1);
+                    }
+                }
+                if (d2) {
+                    d2.className = 'td2';
+                    if (this.tdArr[seqAfter + 1] == 'N') {
+                        this.tdArr[seqAfter + 1] = 'Y';
+                        this.action(seqAfter + 1, 1);
+                    }
+                }
+            }
+        }
+        msg_time() { // 1초씩 카운트
+            const m = Math.floor(this.setTime / 60) + '분 ' + (this.setTime % 60) + '초'; // 남은 시간 계산
+            const m2 = this.setTime;
+            document.querySelector('.lbl').innerText = m;
+            $('#lblTime').val(m2);
+            this.setTime--; // 1초씩 감소
+            if (this.setTime < 0) { // 시간이 종료 되었으면..
+                clearInterval(tid); // 타이머 해제
+                this.showX();
+            } else {
+                this.gameClearMonitoring();
+            }
+        }
+        // 실패시 전체 X의 위치 표시
+        showX(){
+            for (let i = this.td.length - 1; i >= 0; i--) {
+                if (this.td[i].innerText == 'X') {
+                    this.td[i].className = 'td3';
+                }
+            }
+            this.nowPlaying = 'N';   // Game Over
+            clearTimeout(tid);
+            document.querySelector('.resultLayer').innerText = 'Game Over';
+            document.querySelector('.resultLayer').classList.add('move2');
+        }
+        // 종료 함수
+        closeGame(){
+            this.nowPlaying = 'N';
+        }
+        // 게임 클리어 확인 함수
+        gameClearMonitoring(){
+            let flag = true;
+            for (let i = this.td.length - 1; i >= 0; i--) {
+                if (this.td[i].innerText == 'X') {
+                    if (this.td[i].className != 'td4') {
+                        flag = false;
+                    }
+                }
+            }
+            if (flag && this.SetTime < 59 ) {
+                this.nowPlaying = 'N';   
+                clearTimeout(tid);
+                document.querySelector('.resultLayer').innerText = 'Game Clear';
+                document.querySelector('.resultLayer').classList.add('move');  
+                success();
+            }
+            return flag;
+        }
     }
-    fnMakeTable();
-
-    var td = document.getElementsByTagName('td');
-    var tdArr = new Array(100);     // 탐색 여부를 확인하기 위한 배열
-    var tdArrInit = function(){
-        for (var i = tdArr.length - 1; i >= 0; i--) {
-            tdArr[i] = 'N';
-        }    
-    }
-    tdArrInit();
-
-    const maxMineCount = 10; // 최대 X의 갯수
-    var currentMineCount = 0; // 현재 X의 갯수
-
-    // var fnInit = (function(p) {
-    //     // console.log(event.button);
-    //     return function() {
-    //         // console.log(p);
-    //         if (td[p].innerText === 'X') {
-    //             alert('Fail');
-    //             fnShowX();
-    //             // td[p].className = 'td3';
-    //         } else {
-    //             fnAction(p);
-    //             td[p].className = 'td2';
-    //         }
-    //     }
-    // });
-
-    // 주변 8개의 td 검사 (3*3)
-    var fnAction = (function action(seq, gubun) {
-
-        // console.log('seq :: ' + seq);
-
-        var seqBefore = seq - horizontalSize;
-        var seqAfter = seq + horizontalSize;
-
-        /*
-            c1  c   c2
-            a   자신 b
-            d1  d   d2
-        */
-        var a = td[seq - 1] && (seq - 1) % horizontalSize !== 9 ? td[seq - 1].innerText : '';
-        var b = td[seq + 1] && (seq + 1) % horizontalSize !== 0 ? td[seq + 1].innerText : '';
-        var c = td[seqBefore] ? td[seqBefore].innerText : '';
-        var c1 = td[seqBefore - 1] && parseInt((seqBefore-1) % horizontalSize, 10) !== 9 ? td[seqBefore - 1].innerText : '';
-        var c2 = td[seqBefore + 1] && parseInt((seqBefore+1) % horizontalSize, 10) !== 0 ? td[seqBefore + 1].innerText : '';
-        var d = td[seqAfter] ? td[seqAfter].innerText : '';
-        var d1 = td[seqAfter - 1] && parseInt((seqAfter-1) % horizontalSize, 10) !== 9 ? td[seqAfter - 1].innerText : '';
-        var d2 = td[seqAfter + 1] && parseInt((seqAfter+1) % horizontalSize, 10) !== 0 ? td[seqAfter + 1].innerText : '';
-
-        var tmpCount = 0;   // 자신과 붙어있는 X의 갯수를 저장
-        if (td[seq].innerText === 'X') {
-
-        }
-        // 근처에 X가 있다면 (3*3 탐색) 
-        else if (a === 'X' || b === 'X' || c === 'X' || d === 'X' || 
-            c1 === 'X' || c2 === 'X' || d1 === 'X' || d2 === 'X') {
-
-            if (td[seq - 1] && td[seq - 1].innerText === 'X' && (seq - 1) % horizontalSize !== 9) {
-                tmpCount++;
-            }
-            if (td[seq + 1] && td[seq + 1].innerText === 'X' && (seq + 1) % horizontalSize !== 0) {
-                tmpCount++;
-            }
-            if (td[seqBefore] && td[seqBefore].innerText === 'X') { 
-                tmpCount++;
-            }
-            if (td[seqAfter] && td[seqAfter].innerText === 'X') {
-                tmpCount++;
-            }
-            if (parseInt((seq - 1) % horizontalSize, 10) !== 9 && parseInt((seq - 1) % horizontalSize, 10) >= 0) {
-                if (td[seqBefore - 1] && td[seqBefore - 1].innerText === 'X') {
-                    tmpCount++;
-                }
-                if (td[seqAfter - 1] && td[seqAfter - 1].innerText === 'X') {
-                    tmpCount++;
-                }
-            }
-            if (parseInt((seq + 1) % horizontalSize, 10) !== 0 && parseInt((seq + 1) % horizontalSize, 10) >= 0) {
-                if (td[seqBefore + 1] && td[seqBefore + 1].innerText === 'X' ) {
-                    tmpCount++;
-                }
-                if (td[seqAfter + 1] && td[seqAfter + 1].innerText === 'X' ) {
-                    tmpCount++;
-                }
-            }
-            if (tmpCount > 0 && td[seq] != 'X') {
-                td[seq].innerText = tmpCount;    
-            }
-            
-        } else {
-            // 주변에 X가 없다면 TD의 배경색을 밝은 회색으로 변경한다.(오픈의 의미)
-            // 그리고 계속해서 자신과 인접한 8개의 TD를 탐색한다.
-            // 이 때 경우의 수를 줄이기 위해 전역으로 선언한 배열에 각각의 TD의 체크여부를 저장한다.
-            if (td[seq - 1] && (seq - 1) % horizontalSize !== 9 ) {
-                td[seq - 1].className = 'td2';
-                if (tdArr[seq - 1] == 'N') {
-                    tdArr[seq - 1] = 'Y';
-                    fnAction(seq - 1, 1);
-                }
-            }
-            if (td[seq + 1] && (seq + 1) % horizontalSize !== 0 ) {
-                td[seq + 1].className = 'td2';
-                if (tdArr[seq + 1] == 'N') {
-                    tdArr[seq + 1] = 'Y';
-                    fnAction(seq + 1, 1);
-                }
-            }
-            if (td[seqBefore]) {
-                td[seqBefore].className = 'td2';
-                if (tdArr[seqBefore] == 'N') {
-                    tdArr[seqBefore] = 'Y';
-                    fnAction(seqBefore, 1);
-                }
-            }
-            if (td[seqAfter]) {
-                td[seqAfter].className = 'td2';
-                if (tdArr[seqAfter] == 'N') {
-                    tdArr[seqAfter] = 'Y';
-                    fnAction(seqAfter, 1);
-                }
-            }
-            if (parseInt((seq - 1) % horizontalSize, 10) !== 9 && parseInt((seq - 1) % horizontalSize, 10) >= 0) {
-                if (td[seqBefore - 1]) {
-                    td[seqBefore - 1].className = 'td2';
-                    if (tdArr[seqBefore - 1] == 'N') {
-                        tdArr[seqBefore - 1] = 'Y';
-                        fnAction(seqBefore - 1, 1);
-                    }
-                }
-                if (td[seqAfter - 1]) {
-                    td[seqAfter - 1].className = 'td2';
-                    if (tdArr[seqAfter - 1] == 'N') {
-                        tdArr[seqAfter - 1] = 'Y';
-                        fnAction(seqAfter - 1, 1);
-                    }
-                }
-            }
-            if (parseInt((seq + 1) % horizontalSize, 10) !== 0 && parseInt((seq + 1) % horizontalSize, 10) >= 0) {
-                if (td[seqBefore + 1] && parseInt((seq+1) % horizontalSize, 10) !== 0 ) {
-                    td[seqBefore + 1].className = 'td2';
-                    if (tdArr[seqBefore + 1] == 'N') {
-                        tdArr[seqBefore + 1] = 'Y';
-                        fnAction(seqBefore + 1, 1);
-                    }
-                }
-                if (td[seqAfter + 1] && parseInt((seq + 1) % horizontalSize, 10) !== 0 ) {
-                    td[seqAfter + 1].className = 'td2';
-                    if (tdArr[seqAfter + 1] == 'N') {
-                        tdArr[seqAfter + 1] = 'Y';
-                        fnAction(seqAfter + 1, 1);
-                    }
-                }
-            }
-        }
-        return false;
-    });
-
-    var SetTime = 60; // 게임 플레이타임
-
-    var msg_time = function() { // 1초씩 카운트
-
-        m = Math.floor(SetTime / 60) + '분 ' + (SetTime % 60) + '초'; // 남은 시간 계산
-        m2 = SetTime;
-        document.querySelector('.lbl').innerText = m;
-        $('#lblTime').val(m2);
-        SetTime--; // 1초씩 감소
-        if (SetTime < 0) { // 시간이 종료 되었으면..
-            clearInterval(tid); // 타이머 해제
-            // alert("종료");
-            fnShowX();
-        } else {
-            fnGameClearMonitoring();
-        }
-    }
-
+    
     window.onload = function TimerStart() {
         var agent = navigator.userAgent.toLowerCase();
         if (agent.indexOf("msie") != -1) {
             alert("인터넷익스플로러 10버전까지는 지원하지 않습니다.");
             return false;
         }
-        tid = setInterval('msg_time()', 1000);
+        tid = setInterval('landMine.msg_time()', 1000);
     };
 
-    // TD에 이벤트 걸기
-    for (var i = td.length - 1; i >= 0; i--) {
-        
-        td[i].innerHTML = '&nbsp;';
-        var hammertime = new Hammer(td[i]);
-        hammertime.on('press', (function(i) {
-            // ev.preventDefault();
-            return function(e){
-                console.log(e);
-                e.preventDefault();
-                if (nowPlaying == 'N') { return false;}
-                if (td[i].innerText === 'X') {
-                    // console.log('X');
-                    td[i].className = 'td4';
-                } else {
-                    // alert('Game Over');
-                    fnShowX();
-                }
-            }
-        }(i)), false);
-        td[i].addEventListener('click', (function(i){
-
-            return function(){
-                if (nowPlaying == 'N') { return false;}
-                if (td[i].className == 'td4') { return false;}
-                if (td[i].innerText === 'X') {
-                    // alert('Game Over');
-                    fnShowX();
-                    // td[i].className = 'td3';
-                } else {
-                    fnAction(i);
-                    td[i].className = 'td2';
-                }
-            }
-        }(i)), false);
-
-        td[i].addEventListener('contextmenu', (function(i) {
-
-            return function(e){
-                e.preventDefault();
-                if (nowPlaying == 'N') { return false;}
-                if (td[i].innerText === 'X') {
-                    // console.log('X');
-                    td[i].className = 'td4';
-                } else {
-                    // alert('Game Over');
-                    fnShowX();
-                }
-            }
-        }(i)), false);
-
-        
-     
-    }
-    // $(document).bind( "taphold", function(event){
-    //     console.log('tabhold');
-    // } );
-    // $(document).on( 'taphold', 'h3', tapholdHandler );
-
-    // function tapholdHandler( event ){
-    //   alert('Hello');
-    // } 
-    // X 랜덤하게 심기
-    for (var i = maxMineCount; i > 0; i--) {
-        var n = Math.floor(Math.random() * hvSize) + 1;
-        // console.log(n);
-        td[n - 1].innerText = 'X';
-    }
-    // td[62].innerText = 'X';      // TEST
-
-    // 실패시 전체 X의 위치 표시
-    var fnShowX = function showX(){
-
-        for (var i = td.length - 1; i >= 0; i--) {
-            if (td[i].innerText == 'X') {
-                td[i].className = 'td3';
-            }
-        }
-        
-        nowPlaying = 'N';   // Game Over
-        clearTimeout(tid);
-        // document.querySelector('.lbl').innerText = 'Game Over';
-        document.querySelector('.resultLayer').innerText = 'Game Over';
-        document.querySelector('.resultLayer').classList.add('move2');
-    }
-
-    // 종료 함수
-    var fnCloseGame = function closeGame(){
-        nowPlaying = 'N';
-    }
-
-    // 게임 클리어 확인 함수
-    var fnGameClearMonitoring = function gameClearMonitoring(){
-        var flag = true;
-        for (var i = td.length - 1; i >= 0; i--) {
-            if (td[i].innerText == 'X') {
-                if (td[i].className != 'td4') {
-                    flag = false;
-                }
-            }
-        }
-        if (flag && SetTime < 59 ) {
-            nowPlaying = 'N';   
-            clearTimeout(tid);
-            // document.querySelector('.lbl').innerText = 'Game Clear';  
-            document.querySelector('.resultLayer').innerText = 'Game Clear';
-            document.querySelector('.resultLayer').classList.add('move');  
-            success();
-        }
-        return flag;
-    }
+    var landMine = new LandMine(10, 10, 60);
 
     </script>
 </template>
