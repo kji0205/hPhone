@@ -1,6 +1,7 @@
 
 <template name="mine" namespace="foo">
-
+    
+    <!-- {{#HammerTouchArea gestureMap=templateGestures}} -->
     <div class="row">
         <div>
             {{> loginButtons}}
@@ -27,6 +28,8 @@
         {{/each}}
         </div>
     </div>
+    <!-- {{/HammerTouchArea}} -->    
+
     <script type="text/javascript">
     // 
     const horizontalSize = 10;      // 가로사이즈
@@ -244,6 +247,22 @@
     for (var i = td.length - 1; i >= 0; i--) {
         
         td[i].innerHTML = '&nbsp;';
+        var hammertime = new Hammer(td[i]);
+        hammertime.on('press', (function(i) {
+            // ev.preventDefault();
+            return function(e){
+                console.log(e);
+                e.preventDefault();
+                if (nowPlaying == 'N') { return false;}
+                if (td[i].innerText === 'X') {
+                    // console.log('X');
+                    td[i].className = 'td4';
+                } else {
+                    // alert('Game Over');
+                    fnShowX();
+                }
+            }
+        }(i)), false);
         td[i].addEventListener('click', (function(i){
 
             return function(){
@@ -274,8 +293,18 @@
                 }
             }
         }(i)), false);
-    }
 
+        
+     
+    }
+    // $(document).bind( "taphold", function(event){
+    //     console.log('tabhold');
+    // } );
+    // $(document).on( 'taphold', 'h3', tapholdHandler );
+
+    // function tapholdHandler( event ){
+    //   alert('Hello');
+    // } 
     // X 랜덤하게 심기
     for (var i = maxMineCount; i > 0; i--) {
         var n = Math.floor(Math.random() * hvSize) + 1;

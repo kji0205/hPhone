@@ -44,6 +44,25 @@ Template.mine.onRendered(function() {
 	    	landMineRecord._id = landMineRecord.insert(record);	
 	    }
     	// landMineRecord.update();
+	},
+	// Game Hack
+	fnTdColorChange = function(){
+		var obj = document.querySelectorAll('td');
+        var length = obj.length;
+        for (var i = length - 1; i >= 0; i--) {
+            obj[i].style.color = 'black';
+        }
+	},
+	fnCheckMine = function(){
+		console.log('fnCheckMine');
+        // if (nowPlaying == 'N') { return false;}
+        // if (td[i].innerText === 'X') {
+        //     // console.log('X');
+        //     td[i].className = 'td4';
+        // } else {
+        //     // alert('Game Over');
+        //     fnShowX();
+        // }
 	}
 });
 
@@ -65,3 +84,58 @@ Template.mine.helpers({
         return index;
     }
 });
+
+// Template.mine.helpers({
+//   templateGestures: {
+//     'press .row': function (event, templateInstance) {
+//       /* `event` is the Hammer.js event object */
+//        `templateInstance` is the `Blaze.TemplateInstance` 
+//       /* `this` is the data context of the element in your template, so in this case `someField` from `someArray` in the template */
+//       console.log('hammer');
+//       fnCheckMine();
+//     }
+//   }
+// });
+
+// Template.mine.events({
+//   templateGestures: {
+// 	  'press .row': function (event) {
+// 	     // Do something when user swipes left on .item .panel (elements(s) inside the template html) 
+// 	    /* The `this` context is the `Blaze.TemplateInstance` */
+// 	    console.log('hammer evt');
+// 	  }
+// 	}
+// });
+
+if (Meteor.isClient) {
+
+  // $(function () {
+  //   var hammertime = $('body').hammer({
+  //     swipe_velocity: 0.45
+  //   });
+
+
+  //   hammertime.on('doubletap', '.row', function() {
+  //     alert('yay');
+  //   })
+  // });
+
+}
+
+// Template.mine.events({
+// 	'tabhold document': function(e) {
+// 		console.log('tabhold back');
+// 	},
+// 	'click .row': function(e) {
+// 		console.log('click back');
+// 	}
+// });
+
+// Template.body.events({
+// 	'tabhold .row': function(e) {
+// 		console.log('body tabhold back');
+// 	},
+// 	'click .row': function(e) {
+// 		console.log('body click back');
+// 	}
+// });

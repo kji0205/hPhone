@@ -1,0 +1,27 @@
+<template name='test'>
+	
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/hammerjs/2.0.8/hammer.min.js"></script>
+
+	<script type="text/javascript">
+		var d = document.body;
+		var hammertime = new Hammer(d);
+		hammertime.on('press', function(ev) {
+			console.log(ev);
+		});
+	</script>
+
+	a.html
+	<script type="text/javascript">
+		$(document).bind( "taphold", function(event){
+            console.log('tabhold');
+        } );
+        $(document).bind( "press", function(event){
+            console.log('press');
+        } );
+        $(document).bind( "click", function(event){
+            console.log('click');
+        } );
+	</script>
+</template>
