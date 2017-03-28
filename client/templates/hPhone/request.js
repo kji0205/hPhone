@@ -32,7 +32,7 @@ Template.hphone.events({
     }
 
     hphone._id = hphone.insert(post);
-    hphone.update();
+    // hphone.update();
     //Router.go('hphonelist', post);
     alert("신청해주셔서 감사합니다.");
   }
