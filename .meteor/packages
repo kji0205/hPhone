@@ -25,3 +25,6 @@ accounts-ui
 accounts-password
 gwendall:body-events
 chriswessels:hammer
+react-meteor-data
+insecure
+practicalmeteor:mocha

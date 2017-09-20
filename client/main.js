@@ -26,3 +26,4 @@ import { ReactiveVar } from 'meteor/reactive-var';
 // });
 
 Meteor.subscribe('landMineRecord');
+// Meteor.subscribe('tasks');
