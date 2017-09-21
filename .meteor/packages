@@ -28,3 +28,6 @@ chriswessels:hammer
 react-meteor-data
 insecure
 practicalmeteor:mocha
+kadira:flow-router
+styles
+kadira:blaze-layout

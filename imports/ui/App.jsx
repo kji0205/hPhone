@@ -8,6 +8,8 @@ import { Tasks } from '../api/tasks.js';
 import Task from './Task.jsx';
 import AccountsUIWrapper from './AccountsUIWrapper.jsx';
 
+import HeaderLayout from '/client/layouts/HeaderLayout.jsx';
+
 // App component - represents the whole app
 class App extends Component {
   constructor(props) {
@@ -26,12 +28,12 @@ class App extends Component {
 
     Meteor.call('tasks.insert', text);
 
-    Tasks.insert({
-      text,
-      createdAt: new Date(), // current time
-      owner: Meteor.userId(),           // _id of logged in user
-      username: Meteor.user().username,  // username of logged in user
-    });
+    // Tasks.insert({
+    //   text,
+    //   createdAt: new Date(), // current time
+    //   owner: Meteor.userId(),           // _id of logged in user
+    //   username: Meteor.user().username,  // username of logged in user
+    // });
 
     // Clear form
     ReactDOM.findDOMNode(this.refs.textInput).value = '';
@@ -65,8 +67,9 @@ class App extends Component {
   render() {
     return (
       <div className="container">
+        <HeaderLayout></HeaderLayout>
         <header>
-          <h1>Todo List ({this.props.incompleteCount})</h1>
+          <h1>할 일 목록 ({this.props.incompleteCount})</h1>
 
           <label className="hide-completed">
             <input
@@ -75,7 +78,7 @@ class App extends Component {
               checked={this.state.hideCompleted}
               onClick={this.toggleHideCompleted.bind(this)}
             />
-            Hide Completed Tasks
+            완료된 목록 감추기
           </label>
 
           <AccountsUIWrapper />
@@ -85,7 +88,7 @@ class App extends Component {
               <input
                 type="text"
                 ref="textInput"
-                placeholder="Type to add new tasks"
+                placeholder="새로운 할 일 입력"
               />
             </form> : ''
           }
@@ -107,7 +110,7 @@ App.propTypes = {
 
 export default createContainer(() => {
   Meteor.subscribe('tasks');
-  
+
   return {
     tasks: Tasks.find({}, { sort: { createdAt: -1 } }).fetch(),
     incompleteCount: Tasks.find({ checked: { $ne: true } }).count(),

@@ -13,7 +13,10 @@ Package.describe({
 Package.onUse(function(api) {
   api.versionsFrom('1.4.1.3');
   api.use('ecmascript');
-  api.mainModule('styles.js');
+  // api.mainModule('styles.js');
+  api.addFiles([
+      'main.css',
+  ], 'client');
 });
 
 Package.onTest(function(api) {

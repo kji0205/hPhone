@@ -1,0 +1,42 @@
+.header {
+    height: 50px;
+}
+.wrap {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.wrap {
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.nav-main {
+    background: #222;
+    color: #fafafa;
+    /* position: fixed; */
+    top: 0;
+    height: 50px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    width: 100%;
+    z-index: 100;
+}
+.nav-main .nav-home {
+    font-size: 20px;
+}
+.nav-main .nav-home {
+    color: #00d8ff;
+    font-size: 24px;
+    line-height: 50px;
+    height: 50px;
+    display: inline-block;
+}
+.nav-main .nav-logo {
+    height: 30px;
+    width: auto;
+}
+.nav-main .nav-logo {
+    vertical-align: middle;
+    display: inline-block;
+}

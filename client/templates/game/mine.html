@@ -1,13 +1,65 @@
 
 <template name="mine" namespace="foo">
     
+    <style>
+        .wrap {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        .wrap {
+            max-width: 960px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        .nav-main {
+            background: #222;
+            color: #fafafa;
+            /* position: fixed; */
+            top: 0;
+            height: 50px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.5);
+            width: 100%;
+            z-index: 100;
+        }
+        .nav-main .nav-home {
+            font-size: 20px;
+        }
+        .nav-main .nav-home {
+            /* color: #00d8ff; */
+            color: yellow;
+            font-size: 24px;
+            line-height: 50px;
+            height: 50px;
+            display: inline-block;
+        }
+        .nav-main .nav-logo {
+            height: 30px;
+            width: auto;
+        }
+        .nav-main .nav-logo {
+            vertical-align: middle;
+            display: inline-block;
+        }
+    </style>
+
+    <div class="row">
+        <div class="wrap nav-main">
+            <div class="nav-home">
+                <img class="nav-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/240px-Unofficial_JavaScript_logo_2.svg.png" width="36" height="36"/>
+                지뢰찾기
+            </div>
+        </div>
+    </div>
     <!-- {{#HammerTouchArea gestureMap=templateGestures}} -->
     <div class="row">
+        <div><p>&nbsp;</p></div>
         <div>
             {{> loginButtons}}
         </div>
         <div class="col-xs-12 col-md-8">
-            <button onclick="javascript:document.location.reload();">New Start</button>
+            <button onclick="javascript:document.location.reload();">New Game</button>
             
             <label id='' class="lbl"></label>
             <input type="hidden" id="lblTime" name="" value="" data-time="">
@@ -148,6 +200,7 @@
             if (this.td[seq].innerText === 'X') {
                 return false;
             }
+
             // 근처에 X가 있다면 (3*3 탐색) 
             if (a.innerText === 'X') { tmpCount++; }
             if (b.innerText === 'X') { tmpCount++; }
@@ -223,6 +276,8 @@
             }
         }
         msg_time() { // 1초씩 카운트
+            // Bug...
+            return false;
             const m = Math.floor(this.setTime / 60) + '분 ' + (this.setTime % 60) + '초'; // 남은 시간 계산
             const m2 = this.setTime;
             document.querySelector('.lbl').innerText = m;
