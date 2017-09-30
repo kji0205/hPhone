@@ -18,7 +18,7 @@ ecmascript@0.6.3              # Enable ECMAScript2015+ syntax in app code
 shell-server@0.2.3            # Server-side component of the `meteor shell` command
 
 underscore@1.0.10
-iron:router
+#iron:router
 sacha:spin
 session@1.1.7
 accounts-ui
