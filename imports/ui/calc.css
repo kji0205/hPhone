@@ -1,0 +1,35 @@
+.calc.calcDiv {
+    position: absolute;
+    text-align: right;
+    border: 1px solid gray;
+    right: 30px;
+    bottom: 50px;
+    font-size: 1.5rem;
+    opacity: 0.5;
+    z-index: 10011;
+}
+
+.calc.calcDiv table td {
+    width: 100px;
+    text-align: center;
+}
+.calc.calcDiv table td .input{
+    opacity: 0.5;
+    width: 100%;
+    background-color: gray;
+    border: 1px solid grey;
+    text-align: right;
+    
+}
+.calc.calcDiv table td span.left{
+    border: 1px solid #e3e3e3;
+    position: relative;
+    left: 10px;
+    font-size: 1rem;
+}
+.calc.calcDiv table td span.right{
+    border: 1px solid #e3e3e3;
+    position: relative;
+    left: 10px;
+    font-size: 1rem;
+}     

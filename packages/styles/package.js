@@ -16,6 +16,7 @@ Package.onUse(function(api) {
   // api.mainModule('styles.js');
   api.addFiles([
       'main.css',
+      // 'welcome.css',
   ], 'client');
 });
 
